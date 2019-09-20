@@ -18,7 +18,6 @@ export default class DashDoard extends Component {
     }
     handleDelete = (house_id) => {
         axios.delete(`/api/house/${house_id}`).then(res => {
-            console.log(res.data)
             this.setState({
                 houses: res.data
             })

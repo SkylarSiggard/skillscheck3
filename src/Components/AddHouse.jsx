@@ -2,6 +2,41 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
 export default class House extends Component {
+    state = {
+        property: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: ''
+    }
+    handleChangeProperty = (e) => {
+        this.setState({
+            property: e.target.value
+        })
+    }
+    handleChangeAddress = (e) => {
+        this.setState({
+            property: e.target.value
+        })
+    }
+    handleChangeCity = (e) => {
+        this.setState({
+            property: e.target.value
+        })
+    }
+    handleChangeState = (e) => {
+        this.setState({
+            property: e.target.value
+        })
+    }
+    handleChangeZip = (e) => {
+        this.setState({
+            property: e.target.value
+        })
+    }
+
+
+
     render() {
         return(
             <div className='dashboard'>
@@ -12,19 +47,19 @@ export default class House extends Component {
                 <div className='inputs1'>
                         Property Name 
                     <div className='inputs'>
-                        <input type="text"/>
+                        <input onChange={(e) => this.handleChangeProperty(e)} type="text"/>
                     </div>
                         Address 
                     <div className='inputs'>
-                        <input type="text"/>
+                        <input onChange={(e) => this.handleChangeAddress(e)} type="text"/>
                     </div>
                     <div className='inputs'>
                         City 
-                        <input type="text"/>
+                        <input onChange={(e) => this.handleCity(e)} type="text"/>
                         State
-                        <input type="text"/>
+                        <input onChange={(e) => this.handleState(e)} type="text"/>
                         Zip 
-                        <input type="text"/>
+                        <input onChange={(e) => this.handleZip(e)} type="text"/>
                     </div>
                     <div className='next'>
                         <Link to='/addurl'><button>Next Step</button></Link>
