@@ -9,8 +9,8 @@ app.use(express.json())
 
 //!end points
 
-
-app.get('/list/house', ctrl.getAll)
+app.delete(`/api/house/:id`, ctrl.deleteOne)
+app.get('/api/house', ctrl.getAll)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
