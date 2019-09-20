@@ -1,5 +1,7 @@
 {
   "name": "skillscheck3",
+  "proxy": "http://localhost:4000",
+  "main": "server/server.js",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
