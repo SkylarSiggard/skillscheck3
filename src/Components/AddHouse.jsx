@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
-export default class AddName extends Component {
+export default class House extends Component {
     render() {
         return(
             <div className='dashboard'>
                 <div className='dashNav'>
                     <div>Add New Listing</div>
-                    <button>Cancel</button>
+                    <Link to='/'><button>Cancel</button></Link>
                 </div>
                 <div className='inputs1'>
                         Property Name 
@@ -27,7 +27,7 @@ export default class AddName extends Component {
                         <input type="text"/>
                     </div>
                     <div className='next'>
-                        <button>Next Step</button>
+                        <Link to='/addurl'><button>Next Step</button></Link>
                     </div>
                 </div>
             </div>

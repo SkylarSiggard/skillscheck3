@@ -7,7 +7,7 @@ export default class DashDoard extends Component {
             <div className='dashboard'>
                 <div className='dashNav'>
                     <div>DashDoard</div>
-                    <button>Add New Property</button>
+                    <Link to ='/addhouse'><button>Add New Property</button></Link>
                 </div>
                 <></>
                 <div className='list'>Home Listings</div>

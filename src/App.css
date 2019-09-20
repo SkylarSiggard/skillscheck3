@@ -45,3 +45,8 @@ header {
   justify-content: space-between;
   padding: 0 30px 0 30px;
 }
+.rent {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 40px 0;
+}
