@@ -1,25 +1,30 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import store, {REMOVE_HOUSE_TO_LIST} from '../store'
 
 
 export default class DashDoard extends Component {
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
+        const reduxState = store.getState()
+        console.log(reduxState.houses)
         this.state = {
-            houses: []
+            houseList: reduxState.houses
         }
     }
-    async componentDidMount() {
-        const list = await axios.get('/api/house')
-        this.setState({
-            houses: list.data
+    componentDidMount() {
+        store.subscribe(() => {
+            const reduxState = store.getState()
+            this.setState({
+                houseList: reduxState.houses
+            })
         })
     }
     handleDelete = (house_id) => {
         axios.delete(`/api/house/${house_id}`).then(res => {
             this.setState({
-                houses: res.data
+                houseList: res.data
             })
         })
     }
@@ -35,33 +40,33 @@ export default class DashDoard extends Component {
                 <hr/>
                 <div>
                 {
-                    this.state.houses.length ? (
-                        this.state.houses.map(houses => {
+                    this.state.houseList.length ? (
+                        this.state.houseList.map(houseList => {
                             return (
                             <div className='itemBox'>
                                 <div className='picture'>
-                                    <img src={houses.url} alt={houses.property}/>
+                                    <img src={houseList.url} alt={houseList.property}/>
                                 </div>
                                 <div>
-                                    <h6>Property Name: {houses.property}</h6>
-                                    <h6>Address: {houses.address}</h6>
-                                    <h6>City: {houses.city}</h6>
-                                    <h6>State: {houses.state}</h6>
-                                    <h6>Zip: {houses.zip}</h6>
+                                    <h6>Property Name: {houseList.property}</h6>
+                                    <h6>Address: {houseList.address}</h6>
+                                    <h6>City: {houseList.city}</h6>
+                                    <h6>State: {houseList.state}</h6>
+                                    <h6>Zip: {houseList.zip}</h6>
                                 </div>
                                 <div>
-                                    <h6>Monthly Mortgage: {houses.mortgage}</h6>
-                                    <h6>Desired Rent: {houses.rent}</h6>
+                                    <h6>Monthly Mortgage: {houseList.mortgage}</h6>
+                                    <h6>Desired Rent: {houseList.rent}</h6>
                                 </div>
                                 <div className='cancel'>
-                                <button onClick={() => this.handleDelete(houses.house_id)}>X</button>
+                                <button onClick={() => this.handleDelete(houseList.house_id)}>X</button>
                                 </div>
                             </div>
                 )
             })
             ) : null
             }
-            {/* <h1>{this.state.houses.length ? this.state.houses[0].name : null}</h1> */}
+            {/* <h1>{this.state.houseList.length ? this.state.houseList[0].name : null}</h1> */}
             </div>
             </div>
         )
