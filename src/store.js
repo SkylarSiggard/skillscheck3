@@ -3,8 +3,10 @@ import axios from 'axios'
 
 //initial state
 const initialState = {
-    houses: axios.get('/api/house')
+    houses:[]
 }
+
+// const listHouses = axios.get('/api/house')
 
 //action constants
 export const ADD_HOUSE_TO_LIST = 'ADD_HOUSE_TO_LIST'

@@ -15,10 +15,13 @@ export default class DashDoard extends Component {
     }
     componentDidMount() {
         store.subscribe(() => {
-            const reduxState = store.getState()
-            this.setState({
-                houseList: reduxState.houses
+            // const reduxState = store.getState()
+            const list = axios.get('/api/house').then(res => {
+                this.setState({
+                    houseList: list.data
+                })
             })
+            console.log(list)
         })
     }
     handleDelete = (house_id) => {
