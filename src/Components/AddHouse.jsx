@@ -9,30 +9,31 @@ export default class House extends Component {
             address: '',
             city: '',
             state: '',
-            zip: ''
+            zip: null
         }
         this.handleChangeProperty = this.handleChangeProperty.bind(this)
+        this.handleChangeAddress = this.handleChangeAddress.bind(this)
     }
 
 
-    handleChangeProperty(el) {
+    handleChangeProperty(a) {
         this.setState({
-            property: el.target.value
+            property: a.target.value
         })
     }
-    handleChangeAddress = (e) => {
+    handleChangeAddress(b){
         this.setState({
-            property: e.target.value
+            property: b.target.value
         })
     }
-    handleChangeCity = (e) => {
+    handleChangeCity = (c) => {
         this.setState({
-            property: e.target.value
+            property: c.target.value
         })
     }
-    handleChangeState = (e) => {
+    handleChangeState = (d) => {
         this.setState({
-            property: e.target.value
+            property: d.target.value
         })
     }
     handleChangeZip = (e) => {
@@ -53,17 +54,17 @@ export default class House extends Component {
                 <div className='inputs1'>
                         Property Name 
                     <div className='inputs'>
-                        <input onChange={(el) => this.handleChangeProperty(el)} type="text"/>
+                        <input value={this.state.text} onChange={(a) => this.handleChangeProperty(a)} type="text"/>
                     </div>
                         Address 
                     <div className='inputs'>
-                        <input onChange={(e) => this.handleChangeAddress(e)} type="text"/>
+                        <input value={this.state.text} onChange={(b) => this.handleChangeAddress(b)} type="text"/>
                     </div>
                     <div className='inputs'>
                         City 
-                        <input onChange={(e) => this.handleChangeCity(e)} type="text"/>
+                        <input value={this.state.text} onChange={(c) => this.handleChangeCity(c)} type="text"/>
                         State
-                        <input onChange={(e) => this.handleChangeState(e)} type="text"/>
+                        <input value={this.state.text} onChange={(d) => this.handleChangeState(d)} type="text"/>
                         Zip 
                         <input value={this.state.text} onChange={(e) => this.handleChangeZip(e)} type="text"/>
                     </div>

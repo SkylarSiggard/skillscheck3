@@ -2,6 +2,14 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
 export default class AddUrl extends Component {
+    state = {
+        url: ''
+    }
+    handleChange = (el) => {
+        this.setState({
+            url: el.target.value
+        })
+    }
     render() {
         return(
             <div className='dashboard'>
@@ -11,7 +19,7 @@ export default class AddUrl extends Component {
                 </div>
                 <div className='inputs'>
                     Image URL 
-                    <input type="text"/>
+                    <input value={this.state.text} onChange={(el) => this.handleChange(el)}type="text"/>
                 </div>
                 <div className='next1'>
                     <Link to='/addhouse'><button>Prevous Step</button></Link>

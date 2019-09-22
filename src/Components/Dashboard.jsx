@@ -1,28 +1,28 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import store, {REMOVE_HOUSE_TO_LIST} from '../store'
+import store, {REMOVE_HOUSE_FROM_LIST} from '../store'
 
 
 export default class DashDoard extends Component {
-    constructor(){
-        super()
-        const reduxState = store.getState()
-        console.log(reduxState.houses)
+    constructor(props){
+        super(props)
+        // const reduxState = store.getState()
+        // console.log(reduxState.houses)
         this.state = {
-            houseList: reduxState.houses
+            // houseList: reduxState.houses
+            houseList: []
         }
     }
-    componentDidMount() {
-        store.subscribe(() => {
+    async componentDidMount() {
+        // store.subscribe(() => {
             // const reduxState = store.getState()
-            const list = axios.get('/api/house').then(res => {
+            const list = await axios.get('/api/house')
                 this.setState({
                     houseList: list.data
                 })
-            })
             console.log(list)
-        })
+        // })
     }
     handleDelete = (house_id) => {
         axios.delete(`/api/house/${house_id}`).then(res => {
@@ -31,6 +31,13 @@ export default class DashDoard extends Component {
             })
         })
     }
+    // handleDelete = (house_id) => {
+    //     const action = {
+    //         type: REMOVE_HOUSE_FROM_LIST, 
+    //         payload: house_id
+    //     }
+    //     store.dispatch(action)
+    // }
     render() {
         return(
             <div className='dashboard'>
