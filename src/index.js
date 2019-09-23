@@ -4,14 +4,27 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {HashRouter} from 'react-router-dom'
+import axios from 'axios'
+import store, {REMOVE_HOUSE_FROM_LIST, GET_LIST_OF_HOUSES} from './store'
+
+
+export const list = axios.get('/api/house').then(res => {
+    store.dispatch({
+        type: GET_LIST_OF_HOUSES,
+        payload: res.data
+    })
+    // console.log(res.data)
+})
+
 
 ReactDOM.render(
     <HashRouter>
     <App /> 
     </HashRouter>,
     document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    
+    // If you want your app to work offline and load faster, you can change
+    // unregister() to register() below. Note this comes with some pitfalls.
+    // Learn more about service workers: https://bit.ly/CRA-PWA
+    serviceWorker.unregister();
+    
