@@ -39,9 +39,9 @@ async function reducer(state = initialState, action) {
     // console.log('this is the initialState', state)
     switch(action.type) {
         case GET_LIST_OF_HOUSES:
+                console.log('a list bro', action.payload)
             return state.houses = action.payload
             // let listHouses = {houses: action.payload}
-            // console.log('a list bro', action.payload)
             // initialState.houses = listHouses
             // break;
         case ADD_PROPERTY_TO_LIST:

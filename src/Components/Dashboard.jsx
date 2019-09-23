@@ -14,12 +14,12 @@ export default class DashDoard extends Component {
         }
     }
     async componentDidMount() {
-        store.subscribe(() => {
-            const reduxState = store.getState()
+        store.subscribe(async () => {
+            const reduxState = await store.getState()
             console.log('component', reduxState)
             this.setState({
-                // houseList: reduxState
-                houseList: []
+                houseList: reduxState
+                // houseList: []
                 // houseList: reduxState.houses
             })
         })
