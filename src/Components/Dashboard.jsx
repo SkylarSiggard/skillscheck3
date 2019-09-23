@@ -1,42 +1,35 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
-import store, {REMOVE_HOUSE_FROM_LIST, GET_LIST_OF_HOUSES} from '../store'
+import store, {REMOVE_HOUSE_FROM_LIST} from '../store'
 
 export default class DashDoard extends Component {
     constructor(props){
         super(props)
         const reduxState = store.getState()
-        console.log('redusx', reduxState)
+        console.log('dashboard', reduxState)
         this.state = {
+            houseList: reduxState
             // houseList: reduxState.houses
-            houseList: []
         }
     }
     async componentDidMount() {
         store.subscribe(() => {
             const reduxState = store.getState()
+            console.log('component', reduxState)
             this.setState({
+                houseList: reduxState
                 // houseList: reduxState.houses
-                houseList: []
             })
         })
+        console.log(this.state.houseList)
     }
-    
     handleDelete = (house_id) => {
-        axios.delete(`/api/house/${house_id}`).then(res => {
-            this.setState({
-                houseList: res.data
-            })
-        })
+        const action = {
+            type: REMOVE_HOUSE_FROM_LIST, 
+            payload: house_id
+        }
+        store.dispatch(action)
     }
-    // handleDelete = (house_id) => {
-    //     const action = {
-    //         type: REMOVE_HOUSE_FROM_LIST, 
-    //         payload: house_id
-    //     }
-    //     store.dispatch(action)
-    // }
     render() {
         return(
             <div className='dashboard'>
@@ -75,7 +68,7 @@ export default class DashDoard extends Component {
             })
             ) : null
             }
-            {/* <h1>{this.state.houseList.length ? this.state.houseList[0].name : null}</h1> */}
+            <h1>{this.state.houseList.length ? this.state.houseList[0].name : null}</h1>
             </div>
             </div>
         )

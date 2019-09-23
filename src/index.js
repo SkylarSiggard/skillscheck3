@@ -5,15 +5,22 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {HashRouter} from 'react-router-dom'
 import axios from 'axios'
-import store, {REMOVE_HOUSE_FROM_LIST, GET_LIST_OF_HOUSES} from './store'
+import store, { GET_LIST_OF_HOUSES} from './store'
 
 
+// export const list = axios.get('/api/house').then(res => {
+//     store.dispatch({
+//         type: GET_LIST_OF_HOUSES,
+//         payload: res.data
+//     })
+//     // console.log('index', res.data)
+// })
 export const list = axios.get('/api/house').then(res => {
-    store.dispatch({
+    const action = {
         type: GET_LIST_OF_HOUSES,
         payload: res.data
-    })
-    // console.log(res.data)
+    }
+    store.dispatch(action)
 })
 
 

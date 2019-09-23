@@ -1,15 +1,28 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import store, {ADD_URL_TO_LIST} from './../store'
 
 export default class AddUrl extends Component {
-    state = {
-        url: ''
+    constructor(props) {
+        super(props)
+        const reduxState = store.getState()
+        this.state = {
+            url: reduxState.url
+            // url: ''
+        }
     }
-    handleChange = (el) => {
+    handleChange = (e) => {
         this.setState({
-            url: el.target.value
+            url: e.target.value
         })
     }
+    saveChanges() {
+        store.dispatch({
+            type: ADD_URL_TO_LIST,
+            payload: this.state.url
+        })
+    }
+
     render() {
         return(
             <div className='dashboard'>
@@ -19,12 +32,13 @@ export default class AddUrl extends Component {
                 </div>
                 <div className='inputs'>
                     Image URL 
-                    <input value={this.state.text} onChange={(el) => this.handleChange(el)}type="text"/>
+                    <input value={this.state.url} onChange={(el) => this.handleChange(el)}type="text"/>
                 </div>
                 <div className='next1'>
                     <Link to='/addhouse'><button>Prevous Step</button></Link>
                     <Link to='/addlist'><button>Next Step</button></Link>
                 </div>
+                    <Link to='/addlist'><button onClick={() => this.saveChanges()}>Save</button></Link>
             </div>
         )
     }

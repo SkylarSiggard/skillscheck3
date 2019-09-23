@@ -1,19 +1,36 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import store, {ADD_MORGTAGE_TO_LIST, ADD_RENT_TO_LIST} from './../store'
 
 export default class List extends Component {
-    state = {
-        mortgage: null,
-        rent: null
-    }
-    handleChangeMortgage = (el) => {
+    constructor(props){
+        super(props)
+        const reduxState = store.getState()
         this.setState({
-            mortgage: el.target.value
+            // mortgage: '',
+            // rent: ''
+            mortgage: reduxState.mortgage,
+            rent: reduxState.rent
         })
     }
-    handleChangeRent = (element) => {
+    handleChangeMortgage = (e) => {
         this.setState({
-            mortgage: element.target.value
+            mortgage: e.target.value
+        })
+    }
+    handleChangeRent = (e) => {
+        this.setState({
+            rent: e.target.value
+        })
+    }
+    saveChanges() {
+        store.dispatch({
+            type: ADD_MORGTAGE_TO_LIST,
+            payload: this.state.mortgage
+        })
+        store.dispatch({
+            type: ADD_RENT_TO_LIST,
+            payload: this.state.rent
         })
     }
     render() {
@@ -28,16 +45,21 @@ export default class List extends Component {
                 </div>
                 <div className='inputs'>
                     Mounthly Mortgage Amount 
-                    <input value={this.state.text} onChange={(el) => this.handleChangeMortgage(el)} type="text"/>
+                    <input 
+                    // value={this.state.mortgage} 
+                    onChange={(e) => this.handleChangeMortgage(e)} type="text"/>
                 </div>
                 <div className='inputs'>
                     Desired Mounthly Rent
-                    <input value={this.state.text} onChange={(element) => this.handleChangeRent(element)} type="text"/>
+                    <input 
+                    // value={this.state.rent} 
+                    onChange={(e) => this.handleChangeRent(e)} type="text"/>
                 </div>
                 <div className='next1'>
                     <Link to='/addurl'><button>Prevous Step</button></Link>
                     <Link to='/'><button>Complete</button></Link>
                 </div>
+                    <Link to='/'><button onClick={() => this.saveChanges()}>save</button></Link>
             </div>
         )
     }
