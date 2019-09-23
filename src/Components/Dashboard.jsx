@@ -8,7 +8,8 @@ export default class DashDoard extends Component {
         const reduxState = store.getState()
         console.log('dashboard', reduxState)
         this.state = {
-            houseList: reduxState
+            // houseList: reduxState
+            houseList: []
             // houseList: reduxState.houses
         }
     }
@@ -17,11 +18,12 @@ export default class DashDoard extends Component {
             const reduxState = store.getState()
             console.log('component', reduxState)
             this.setState({
-                houseList: reduxState
+                // houseList: reduxState
+                houseList: []
                 // houseList: reduxState.houses
             })
         })
-        console.log(this.state.houseList)
+        // console.log(this.state.houseList)
     }
     handleDelete = (house_id) => {
         const action = {

@@ -48,23 +48,23 @@ export default class House extends Component {
         })
     }
     saveChanges() {
-        store.disparch({
+        store.dispatch({
             type: ADD_PROPERTY_TO_LIST,
             payload: this.state.property
         })
-        store.disparch({
+        store.dispatch({
             type: ADD_ADDRESS_TO_LIST,
             payload: this.state.address
         })
-        store.disparch({
+        store.dispatch({
             type: ADD_CITY_TO_LIST,
             payload: this.state.city
         })
-        store.disparch({
+        store.dispatch({
             type: ADD_STATE_TO_LIST,
             payload: this.state.state
         })
-        store.disparch({
+        store.dispatch({
             type: ADD_ZIP_TO_LIST,
             payload: this.state.zip
         })
