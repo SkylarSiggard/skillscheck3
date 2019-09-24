@@ -16,7 +16,7 @@ export default class House extends Component {
             property: reduxState.property,
             address: reduxState.address,
             city: reduxState.city,
-            state: reduxState.state,
+            state: reduxState.uState,
             zip: reduxState.zip
         }
         this.handleChangeProperty = this.handleChangeProperty.bind(this)
@@ -39,7 +39,7 @@ export default class House extends Component {
     }
     handleChangeState = (e) => {
         this.setState({
-            state: e.target.value
+            uState: e.target.value
         })
     }
     handleChangeZip = (e) => {
@@ -62,7 +62,7 @@ export default class House extends Component {
         })
         store.dispatch({
             type: ADD_STATE_TO_LIST,
-            payload: this.state.state
+            payload: this.state.uState
         })
         store.dispatch({
             type: ADD_ZIP_TO_LIST,
@@ -89,7 +89,7 @@ export default class House extends Component {
                         City 
                         <input value={this.state.city} onChange={(e) => this.handleChangeCity(e)} type="text"/>
                         State
-                        <input value={this.state.state} onChange={(e) => this.handleChangeState(e)} type="text"/>
+                        <input value={this.state.uState} onChange={(e) => this.handleChangeState(e)} type="text"/>
                         Zip 
                         <input value={this.state.zip} onChange={(e) => this.handleChangeZip(e)} type="text"/>
                     </div>

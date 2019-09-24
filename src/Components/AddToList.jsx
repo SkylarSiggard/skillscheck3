@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import store, {ADD_MORGTAGE_TO_LIST, ADD_RENT_TO_LIST} from './../store'
+import store, {ADD_MORGTAGE_TO_LIST, ADD_RENT_TO_LIST, ADD_HOUSE} from './../store'
 
 export default class List extends Component {
     constructor(props){
@@ -33,6 +33,11 @@ export default class List extends Component {
             payload: this.state.rent
         })
     }
+            create() {
+                store.dispatch({
+                    type: ADD_HOUSE
+                })
+            }
     render() {
         return(
             <div className='dashboard'>
@@ -57,6 +62,7 @@ export default class List extends Component {
                 </div>
                 <div className='next1'>
                     <Link to='/addurl'><button>Prevous Step</button></Link>
+                    <Link to='/'><button>Save</button></Link>
                     <Link to='/'><button>Complete</button></Link>
                 </div>
                     <Link to='/'><button onClick={() => this.saveChanges()}>save</button></Link>

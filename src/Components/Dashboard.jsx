@@ -17,7 +17,6 @@ export default class DashDoard extends Component {
                 houseList: reduxState.houses
             })
         })
-        // console.log(this.state.houseList)
     }
     handleDelete = (house_id) => {
         const action = {
@@ -49,7 +48,7 @@ export default class DashDoard extends Component {
                                     <h6>Property Name: {houseList.property}</h6>
                                     <h6>Address: {houseList.address}</h6>
                                     <h6>City: {houseList.city}</h6>
-                                    <h6>State: {houseList.state}</h6>
+                                    <h6>State: {houseList.uState}</h6>
                                     <h6>Zip: {houseList.zip}</h6>
                                 </div>
                                 <div>
