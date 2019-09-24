@@ -63,8 +63,8 @@ async function reducer(state = initialState, action) {
 
         case ADD_HOUSE: 
             const {property, address, city, uState, zip, url, morgtage, rent} = state
-            // const house = {property, address, city, uState, zip, url, morgtage, rent}
-            const newHouse = [...state.houses, {property, address, city, uState, zip, url, morgtage, rent}]
+            const addHouse = {property, address, city, uState, zip, url, morgtage, rent}
+            const newHouse = [...state.houses, addHouse]
             return {...state, houses: newHouse}
 
         default: 
