@@ -9,16 +9,7 @@ const initialState = {
     url: '',
     morgtage: '',
     rent: '',
-    houses: [{
-        property: 'skylars house',
-        address: '123 street',
-        city: 'sandy',
-        state: 'UT',
-        zip: 84032,
-        url: '',
-        morgtage: 666,
-        rent: 12
-    }]
+    houses: []
 }
 //action constants
 export const ADD_PROPERTY_TO_LIST = 'ADD_PROPERTY_TO_LIST'
@@ -39,11 +30,8 @@ async function reducer(state = initialState, action) {
     // console.log('this is the initialState', state)
     switch(action.type) {
         case GET_LIST_OF_HOUSES:
-                console.log('a list bro', action.payload)
-            return state.houses = action.payload
-            // let listHouses = {houses: action.payload}
-            // initialState.houses = listHouses
-            // break;
+            return {...state, houses: action.payload}
+
         case ADD_PROPERTY_TO_LIST:
             return {...state, property: action.payload}
 
@@ -73,11 +61,11 @@ async function reducer(state = initialState, action) {
             updateList.splice(action.payload, 1)
             return Object.assign({}, state, {houses: updateList})
 
-            // case ADD_HOUSE: 
-            //     const {property, address, city, state, zip, url, morgtage, rent} = state
-            //     const house = {property, address, city, state, zip, url, morgtage, rent}
-            //     const newHouse = [...state.houses, house]
-            //     return {...state, houses: newHouse}
+        // case ADD_HOUSE: 
+        //     const {property, address, city, state, zip, url, morgtage, rent} = state
+        //     const house = {property, address, city, state, zip, url, morgtage, rent}
+        //     const newHouse = [...state.houses, house]
+        //     return {...state, houses: newHouse}
 
         default: 
         // console.log('end is hit', state)
