@@ -62,7 +62,7 @@ export default class List extends Component {
                 </div>
                 <div className='next1'>
                     <Link to='/addurl'><button>Prevous Step</button></Link>
-                    <Link to='/'><button onClick={() => this.saveChanges()}>Save</button></Link>
+                    <button onClick={() => this.saveChanges()}>Save</button>
                     <Link to='/'><button onClick={() => this.create()}>Complete</button></Link>
                 </div>
             </div>
