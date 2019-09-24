@@ -36,9 +36,8 @@ export default class AddUrl extends Component {
                 </div>
                 <div className='next1'>
                     <Link to='/addhouse'><button>Prevous Step</button></Link>
-                    <Link to='/addlist'><button>Next Step</button></Link>
+                    <Link to='/addlist'><button onClick={() => this.saveChanges()}>Next Step</button></Link>
                 </div>
-                    <Link to='/addlist'><button onClick={() => this.saveChanges()}>Save</button></Link>
             </div>
         )
     }

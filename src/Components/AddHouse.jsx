@@ -94,9 +94,8 @@ export default class House extends Component {
                         <input value={this.state.zip} onChange={(e) => this.handleChangeZip(e)} type="text"/>
                     </div>
                     <div className='next'>
-                        <Link to='/addurl'><button>Next Step</button></Link>
+                        <Link to='/addurl'><button onClick={() => this.saveChanges()}>Next Step</button></Link>
                     </div>
-                        <Link to='/addurl'><button onClick={() => this.saveChanges()}>Save</button></Link>
                 </div>
             </div>
         )

@@ -33,11 +33,11 @@ export default class List extends Component {
             payload: this.state.rent
         })
     }
-            create() {
-                store.dispatch({
-                    type: ADD_HOUSE
-                })
-            }
+    create() {
+        store.dispatch({
+                type: ADD_HOUSE
+        })
+    }
     render() {
         return(
             <div className='dashboard'>
@@ -62,10 +62,9 @@ export default class List extends Component {
                 </div>
                 <div className='next1'>
                     <Link to='/addurl'><button>Prevous Step</button></Link>
-                    <Link to='/'><button>Save</button></Link>
-                    <Link to='/'><button>Complete</button></Link>
+                    <Link to='/'><button onClick={() => this.saveChanges()}>Save</button></Link>
+                    <Link to='/'><button onClick={() => this.create()}>Complete</button></Link>
                 </div>
-                    <Link to='/'><button onClick={() => this.saveChanges()}>save</button></Link>
             </div>
         )
     }
