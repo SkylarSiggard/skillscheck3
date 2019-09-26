@@ -7,10 +7,10 @@ export default class List extends Component {
         super(props)
         const reduxState = store.getState()
         this.setState({
-            // mortgage: '',
-            // rent: ''
-            mortgage: reduxState.mortgage,
-            rent: reduxState.rent
+            mortgage: '',
+            rent: ''
+            // mortgage: reduxState.mortgage,
+            // rent: reduxState.rent
         })
     }
     handleChangeMortgage = (e) => {

@@ -8,16 +8,16 @@ export default class House extends Component {
         const reduxState = store.getState()
         console.log('addHouse',reduxState)
         this.state = {
-            // property: '',
-            // address: '',
-            // city: '',
-            // state: '',
-            // zip: ''            
-            property: reduxState.property,
-            address: reduxState.address,
-            city: reduxState.city,
-            state: reduxState.uState,
-            zip: reduxState.zip
+            property: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: ''            
+            // property: reduxState.property,
+            // address: reduxState.address,
+            // city: reduxState.city,
+            // state: reduxState.uState,
+            // zip: reduxState.zip
         }
         this.handleChangeProperty = this.handleChangeProperty.bind(this)
         this.handleChangeAddress = this.handleChangeAddress.bind(this)

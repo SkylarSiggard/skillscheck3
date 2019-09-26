@@ -7,8 +7,8 @@ export default class AddUrl extends Component {
         super(props)
         const reduxState = store.getState()
         this.state = {
-            url: reduxState.url
-            // url: ''
+            // url: reduxState.url
+            url: ''
         }
     }
     handleChange = (e) => {
