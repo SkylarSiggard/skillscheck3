@@ -8,7 +8,8 @@ export default class List extends Component {
         const reduxState = store.getState()
         this.setState({
             mortgage: '',
-            rent: ''
+            rent: '',
+            reduxState: reduxState
             // mortgage: reduxState.mortgage,
             // rent: reduxState.rent
         })
@@ -33,7 +34,8 @@ export default class List extends Component {
             payload: this.state.rent
         })
     }
-    create() {
+    create=()=> {
+        console.log(this.state)
         store.dispatch({
                 type: ADD_HOUSE
         })

@@ -57,15 +57,17 @@ async function reducer(state = initialState, action) {
             return {...state, rent: action.payload}
 
         case REMOVE_HOUSE_FROM_LIST: 
-            let updateList = [...state.houses]
+            let updateList = [{...state.houses}]
+        console.log([...state.houses])
             updateList.splice(action.payload, 1)
             return Object.assign({}, state, {houses: updateList})
 
         case ADD_HOUSE: 
             const {property, address, city, uState, zip, url, morgtage, rent} = state
             const addHouse = {property, address, city, uState, zip, url, morgtage, rent}
-            const newHouse = [...state.houses, addHouse]
-            return {...state, houses: newHouse}
+            // const newHouse = [...state.houses, addHouse]
+            console.log('house', addHouse)
+            return {...state, houses: [...state.houses, addHouse]}
 
         default: 
         // console.log('end is hit', state)
