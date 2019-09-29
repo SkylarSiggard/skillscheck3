@@ -17,15 +17,16 @@ export default class DashDoard extends Component {
             this.setState({
                 houseList: reduxState.houses
             })
+            console.log('houses', this.state.houseList)
         })
     }
-    handleDelete = (index) => {
+    handleDelete = (house_id) => {
         const action = {
             type: REMOVE_HOUSE_FROM_LIST, 
-            payload: index
+            payload: house_id
         }
         store.dispatch(action)
-        axios.delete(`/api/house/${index}`).then(result => {
+        axios.delete(`/api/house/${house_id}`).then(result => {
             console.log(result)
         })
     }
@@ -60,7 +61,7 @@ export default class DashDoard extends Component {
                                     <h6>Desired Rent: {houseList.rent}</h6>
                                 </div>
                                 <div className='cancel'>
-                                <button onClick={() => this.handleDelete(index)}>X</button>
+                                <button onClick={() => this.handleDelete(houseList.house_id)}>X</button>
                                 </div>
                             </div>
                 )
