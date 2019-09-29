@@ -10,9 +10,9 @@ export default class DashDoard extends Component {
             houseList: reduxState.houses
         }
     }
-    async componentDidMount() {
-        store.subscribe(async () => {
-            const reduxState = await store.getState()
+    componentDidMount() {
+        store.subscribe(() => {
+            const reduxState = store.getState()
             this.setState({
                 houseList: reduxState.houses
             })

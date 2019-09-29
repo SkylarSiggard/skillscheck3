@@ -16,7 +16,7 @@ export default class List extends Component {
             [key]: e.target.value
         })
     }
-    saveChanges() {
+    create() {
         store.dispatch({
             type: ADD_MORGTAGE_TO_LIST,
             payload: this.state.mortgage
@@ -25,10 +25,8 @@ export default class List extends Component {
             type: ADD_RENT_TO_LIST,
             payload: this.state.rent
         })
-    }
-    create = () => {
         store.dispatch({
-                type: ADD_HOUSE
+            type: ADD_HOUSE
         })
     }
     render() {
@@ -51,7 +49,6 @@ export default class List extends Component {
                 </div>
                 <div className='next1'>
                     <Link to='/addurl'><button>Prevous Step</button></Link>
-                    <button onClick={() => this.saveChanges()}>Save</button>
                     <Link to='/'><button onClick={() => this.create()}>Complete</button></Link>
                 </div>
             </div>

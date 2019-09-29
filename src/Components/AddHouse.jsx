@@ -10,7 +10,7 @@ export default class House extends Component {
             property: reduxState.property,
             address: reduxState.address,
             city: reduxState.city,
-            state: reduxState.uState,
+            uState: reduxState.uState,
             zip: reduxState.zip
         }
     }
@@ -52,19 +52,19 @@ export default class House extends Component {
                 <div className='inputs1'>
                         Property Name 
                     <div className='inputs'>
-                        <input onChange={(e) => this.handleChange(e, 'property')} type="text"/>
+                        <input value={this.state.property} onChange={(e) => this.handleChange(e, 'property')} type="text"/>
                     </div>
                         Address 
                     <div className='inputs'>
-                        <input onChange={(e) => this.handleChange(e, 'address')} type="text"/>
+                        <input value={this.state.address} onChange={(e) => this.handleChange(e, 'address')} type="text"/>
                     </div>
                     <div className='inputs'>
                         City 
-                        <input onChange={(e) => this.handleChange(e, 'city')} type="text"/>
+                        <input value={this.state.city} onChange={(e) => this.handleChange(e, 'city')} type="text"/>
                         State
-                        <input onChange={(e) => this.handleChange(e, 'uState')} type="text"/>
+                        <input value={this.state.uState} onChange={(e) => this.handleChange(e, 'uState')} type="text"/>
                         Zip 
-                        <input onChange={(e) => this.handleChange(e, 'zip')} type="text"/>
+                        <input value={this.state.zip} onChange={(e) => this.handleChange(e, 'zip')} type="text"/>
                     </div>
                     <div className='next'>
                         <Link to='/addurl'><button onClick={() => this.saveChanges()}>Next Step</button></Link>

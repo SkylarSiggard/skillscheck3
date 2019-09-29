@@ -27,7 +27,7 @@ export const GET_LIST_OF_HOUSES ='GET_LIST_OF_HOUSES'
 
 //reducer function
 function reducer(state = initialState, action) {
-    console.log('this is the initialState', state.houses)
+    // console.log('this is the initialState', state.houses)
     switch(action.type)  {
         case GET_LIST_OF_HOUSES:
             return {...state, houses: action.payload}
