@@ -62,12 +62,14 @@ async function reducer(state = initialState, action) {
             updateList.splice(action.payload, 1)
             return Object.assign({}, state, {houses: updateList})
 
-        case ADD_HOUSE: 
-            const {property, address, city, uState, zip, url, morgtage, rent} = state
-            const addHouse = {property, address, city, uState, zip, url, morgtage, rent}
-            // const newHouse = [...state.houses, addHouse]
-            console.log('house', addHouse)
-            return {...state, houses: [...state.houses, addHouse]}
+        case ADD_HOUSE:   
+        // console.log('1 add house', state)
+        const {property, address, city, uState, zip, url, morgtage, rent} = state
+        const addHouse = {property, address, city, uState, zip, url, morgtage, rent}
+        const newHouse = [...state.houses, addHouse]
+        // console.log('house', addHouse)
+        return {...state, houses: newHouse}
+            // return {...state, houses: [...state.houses]}
 
         default: 
         // console.log('end is hit', state)
@@ -76,6 +78,5 @@ async function reducer(state = initialState, action) {
 }
 
 // create store
-export default createStore(reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+export default createStore(reducer, 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

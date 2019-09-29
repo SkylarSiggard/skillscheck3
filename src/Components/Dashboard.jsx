@@ -9,15 +9,15 @@ export default class DashDoard extends Component {
             houseList: []
         }
     }
-    // async componentDidMount() {
-    //     store.subscribe(async () => {
-    //         const reduxState = await store.getState()
-    //         console.log('dashborad', reduxState.houses)
-    //         this.setState({
-    //             houseList: reduxState.houses
-    //         })
-    //     })
-    // }
+    async componentDidMount() {
+        store.subscribe(async () => {
+            const reduxState = await store.getState()
+            console.log('dashborad', reduxState.houses)
+            this.setState({
+                houseList: reduxState.houses
+            })
+        })
+    }
     handleDelete = (house_id) => {
         const action = {
             type: REMOVE_HOUSE_FROM_LIST, 

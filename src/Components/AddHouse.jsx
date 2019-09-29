@@ -6,45 +6,28 @@ export default class House extends Component {
     constructor(props) {
         super(props)
         const reduxState = store.getState()
-        console.log('addHouse',reduxState)
+        console.log('addprop',reduxState.property)
+        console.log('addHouse',reduxState.address)
+        console.log('addcity',reduxState.city)
+        console.log('addstate',reduxState.uState)
+        console.log('addzip',reduxState.zip)
         this.state = {
-            property: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: ''            
-            // property: reduxState.property,
-            // address: reduxState.address,
-            // city: reduxState.city,
-            // state: reduxState.uState,
-            // zip: reduxState.zip
+            // property: '',
+            // address: '',
+            // city: '',
+            // state: '',
+            // zip: ''            
+            property: reduxState.property,
+            address: reduxState.address,
+            city: reduxState.city,
+            state: reduxState.uState,
+            zip: reduxState.zip
         }
-        this.handleChangeProperty = this.handleChangeProperty.bind(this)
-        this.handleChangeAddress = this.handleChangeAddress.bind(this)
     }
-    handleChangeProperty(e) {
+
+    handleChange = (e, key) => {
         this.setState({
-            property: e.target.value
-        })
-    }
-    handleChangeAddress(e){
-        this.setState({
-            address: e.target.value
-        })
-    }
-    handleChangeCity = (e) => {
-        this.setState({
-            city: e.target.value
-        })
-    }
-    handleChangeState = (e) => {
-        this.setState({
-            uState: e.target.value
-        })
-    }
-    handleChangeZip = (e) => {
-        this.setState({
-            zip: e.target.value
+            [key]: e.target.value
         })
     }
     saveChanges() {
@@ -79,19 +62,19 @@ export default class House extends Component {
                 <div className='inputs1'>
                         Property Name 
                     <div className='inputs'>
-                        <input value={this.state.text} onChange={(e) => this.handleChangeProperty(e)} type="text"/>
+                        <input onChange={(e) => this.handleChange(e, 'property')} type="text"/>
                     </div>
                         Address 
                     <div className='inputs'>
-                        <input value={this.state.address} onChange={(e) => this.handleChangeAddress(e)} type="text"/>
+                        <input onChange={(e) => this.handleChange(e, 'address')} type="text"/>
                     </div>
                     <div className='inputs'>
                         City 
-                        <input value={this.state.city} onChange={(e) => this.handleChangeCity(e)} type="text"/>
+                        <input onChange={(e) => this.handleChange(e, 'city')} type="text"/>
                         State
-                        <input value={this.state.uState} onChange={(e) => this.handleChangeState(e)} type="text"/>
+                        <input onChange={(e) => this.handleChange(e, 'uState')} type="text"/>
                         Zip 
-                        <input value={this.state.zip} onChange={(e) => this.handleChangeZip(e)} type="text"/>
+                        <input onChange={(e) => this.handleChange(e, 'zip')} type="text"/>
                     </div>
                     <div className='next'>
                         <Link to='/addurl'><button onClick={() => this.saveChanges()}>Next Step</button></Link>

@@ -6,12 +6,14 @@ export default class List extends Component {
     constructor(props){
         super(props)
         const reduxState = store.getState()
+        console.log('addpayment', reduxState.mortgage)
+        console.log('addrent', reduxState.rent)
         this.setState({
-            mortgage: '',
-            rent: '',
-            reduxState: reduxState
-            // mortgage: reduxState.mortgage,
-            // rent: reduxState.rent
+            // mortgage: '',
+            // rent: '',
+            // reduxState: reduxState
+            mortgage: reduxState.mortgage,
+            rent: reduxState.rent
         })
     }
     handleChangeMortgage = (e) => {
