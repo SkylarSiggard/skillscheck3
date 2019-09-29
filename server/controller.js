@@ -6,8 +6,9 @@ module.exports = {
     },
     deleteOne: async (req, res) => {
         const db = req.app.get('db')
-        const {index} = req.params
-        db.delete_house([+index]).then(result => {
+        const {id} = req.params
+        console.log('index num', +id)
+        db.delete_house([+id]).then(result => {
             res.status(200).send(result)
         })
     },
