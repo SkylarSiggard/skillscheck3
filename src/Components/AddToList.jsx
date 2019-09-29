@@ -6,12 +6,7 @@ export default class List extends Component {
     constructor(props){
         super(props)
         const reduxState = store.getState()
-        // console.log('addpayment', reduxState.mortgage)
-        // console.log('addrent', reduxState.rent)
         this.setState({
-            // mortgage: '',
-            // rent: '',
-            // reduxState: reduxState
             mortgage: reduxState.mortgage,
             rent: reduxState.rent
         })
@@ -32,7 +27,6 @@ export default class List extends Component {
         })
     }
     create = () => {
-        // console.log(this.state)
         store.dispatch({
                 type: ADD_HOUSE
         })
@@ -49,15 +43,11 @@ export default class List extends Component {
                 </div>
                 <div className='inputs'>
                     Mounthly Mortgage Amount 
-                    <input 
-                    // value={this.state.mortgage} 
-                    onChange={(e) => this.handleChange(e, 'mortgage')} type="text"/>
+                    <input onChange={(e) => this.handleChange(e, 'mortgage')} type="text"/>
                 </div>
                 <div className='inputs'>
                     Desired Mounthly Rent
-                    <input 
-                    // value={this.state.rent} 
-                    onChange={(e) => this.handleChange(e, 'rent')} type="text"/>
+                    <input onChange={(e) => this.handleChange(e, 'rent')} type="text"/>
                 </div>
                 <div className='next1'>
                     <Link to='/addurl'><button>Prevous Step</button></Link>

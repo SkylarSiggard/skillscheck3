@@ -33,11 +33,9 @@ function reducer(state = initialState, action) {
             return {...state, houses: action.payload}
             
         case ADD_PROPERTY_TO_LIST:
-                // console.log('property', state)
             return {...state, property: action.payload}
                 
         case ADD_ADDRESS_TO_LIST: 
-                // console.log('address', state)
             return {...state, address: action.payload}
                 
         case ADD_CITY_TO_LIST:
@@ -65,16 +63,12 @@ function reducer(state = initialState, action) {
             return Object.assign({}, state, {houses: updateList})
 
         case ADD_HOUSE:   
-        // console.log('1 add house', state)
         const {property, address, city, uState, zip, url, morgtage, rent} = state
         const addHouse = {property, address, city, uState, zip, url, morgtage, rent}
         const newHouse = [...state.houses, addHouse]
-        // console.log('house', addHouse)
         return {...state, houses: newHouse}
-            // return {...state, houses: [...state.houses]}
 
         default: 
-        // console.log('end is hit', state)
         return state
     }
 }

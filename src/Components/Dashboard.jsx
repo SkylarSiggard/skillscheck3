@@ -5,19 +5,19 @@ import store, {REMOVE_HOUSE_FROM_LIST} from '../store'
 export default class DashDoard extends Component {
     constructor(props){
         super(props)
+        const reduxState = store.getState()
         this.state = {
-            houseList: []
+            houseList: reduxState.houses
         }
     }
-    // async componentDidMount() {
-    //     store.subscribe(async () => {
-    //         const reduxState = await store.getState()
-    //         // console.log('dashborad', reduxState.houses)
-    //         this.setState({
-    //             houseList: reduxState.houses
-    //         })
-    //     })
-    // }
+    async componentDidMount() {
+        store.subscribe(async () => {
+            const reduxState = await store.getState()
+            this.setState({
+                houseList: reduxState.houses
+            })
+        })
+    }
     handleDelete = (house_id) => {
         const action = {
             type: REMOVE_HOUSE_FROM_LIST, 
