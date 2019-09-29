@@ -8,20 +8,13 @@ import axios from 'axios'
 import store, { GET_LIST_OF_HOUSES} from './store'
 
 
-// export const list = axios.get('/api/house').then(res => {
-//     store.dispatch({
-//         type: GET_LIST_OF_HOUSES,
-//         payload: res.data
-//     })
-//     // console.log('index', res.data)
-// })
-// export const list = axios.get('/api/house').then(res => {
-//     const action = {
-//         type: GET_LIST_OF_HOUSES,
-//         payload: res.data
-//     }
-//     store.dispatch(action)
-// })
+export const list = axios.get('/api/house').then(res => {
+    const action = {
+        type: GET_LIST_OF_HOUSES,
+        payload: res.data
+    }
+    store.dispatch(action)
+})
 
 
 ReactDOM.render(

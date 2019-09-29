@@ -11,6 +11,8 @@ const initialState = {
     rent: '',
     houses: []
 }
+
+
 //action constants
 export const ADD_PROPERTY_TO_LIST = 'ADD_PROPERTY_TO_LIST'
 export const ADD_ADDRESS_TO_LIST = 'ADD_ADDRESS_TO_LIST'

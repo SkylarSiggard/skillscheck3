@@ -11,10 +11,10 @@ module.exports = {
             res.status(200).send(result)
         })
     },
-    addItem: async (req, res) => {
+    addHouse: async (req, res) => {
         const db = req.app.get('db')
-        const {property, address, city, state, zip, url, morgage, rent} = req.body
-        const list = await db.add_a_house({property, address, city, state, zip, url, morgage, rent})
+        const {property, address, city, uState, zip, url, morgage, rent} = req.body
+        const list = await db.add_a_house({property, address, city, uState, zip, url, morgage, rent})
         res.status(200).send(list)
     }
 }

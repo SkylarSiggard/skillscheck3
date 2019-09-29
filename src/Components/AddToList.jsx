@@ -1,12 +1,19 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import store, {ADD_MORGTAGE_TO_LIST, ADD_RENT_TO_LIST, ADD_HOUSE} from './../store'
+import axios from 'axios'
 
 export default class List extends Component {
     constructor(props){
         super(props)
         const reduxState = store.getState()
         this.setState({
+            property: reduxState.property,
+            address: reduxState.address,
+            city: reduxState.city,
+            uState: reduxState.uState,
+            zip: reduxState.zip,
+            url: reduxState.url,
             mortgage: reduxState.mortgage,
             rent: reduxState.rent
         })
@@ -28,6 +35,19 @@ export default class List extends Component {
         store.dispatch({
             type: ADD_HOUSE
         })
+        const reduxState = store.getState()
+        axios.post('/api/house', {property: reduxState.property, address: reduxState.address, city: reduxState.city, uState: reduxState.uState, zip: reduxState.zip, url: reduxState.url, mortgage: reduxState.mortgage, rent: reduxState.rent }).then(res => {
+            this.setState({
+            property: '',
+            address: '',
+            city: '',
+            uState: '',
+            zip: '',
+            url: '',
+            mortgage: '',
+            rent: ''
+    })
+    })
     }
     render() {
         return(
@@ -37,7 +57,7 @@ export default class List extends Component {
                     <Link to='/'><button>Cancel</button></Link>
                 </div>
                 <div className='rent'>
-                Recommended Rent $0
+                Recommended Rent ${this.state.mortgage * 1.25}  
                 </div>
                 <div className='inputs'>
                     Mounthly Mortgage Amount 
