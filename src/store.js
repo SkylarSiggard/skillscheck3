@@ -27,7 +27,7 @@ export const GET_LIST_OF_HOUSES ='GET_LIST_OF_HOUSES'
 
 //reducer function
 function reducer(state = initialState, action) {
-    console.log('this is the initialState', state)
+    console.log('this is the initialState', state.houses)
     switch(action.type)  {
         case GET_LIST_OF_HOUSES:
             return {...state, houses: action.payload}
@@ -57,10 +57,8 @@ function reducer(state = initialState, action) {
             return {...state, rent: action.payload}
 
         case REMOVE_HOUSE_FROM_LIST: 
-            let updateList = [{...state.houses}]
-        console.log([...state.houses])
-            updateList.splice(action.payload, 1)
-            return Object.assign({}, state, {houses: updateList})
+            state.houses.splice(action.payload, 1)
+            return {...state}
 
         case ADD_HOUSE:   
         const {property, address, city, uState, zip, url, morgtage, rent} = state

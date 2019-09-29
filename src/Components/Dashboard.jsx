@@ -18,10 +18,10 @@ export default class DashDoard extends Component {
             })
         })
     }
-    handleDelete = (house_id) => {
+    handleDelete = (index) => {
         const action = {
             type: REMOVE_HOUSE_FROM_LIST, 
-            payload: house_id
+            payload: index
         }
         store.dispatch(action)
     }
@@ -38,7 +38,7 @@ export default class DashDoard extends Component {
                 <div>
                 {
                     this.state.houseList.length ? (
-                        this.state.houseList.map(houseList => {
+                        this.state.houseList.map((houseList, index) => {
                             return (
                             <div className='itemBox'>
                                 <div className='picture'>
@@ -56,7 +56,7 @@ export default class DashDoard extends Component {
                                     <h6>Desired Rent: {houseList.rent}</h6>
                                 </div>
                                 <div className='cancel'>
-                                <button onClick={() => this.handleDelete(houseList.house_id)}>X</button>
+                                <button onClick={() => this.handleDelete(index)}>X</button>
                                 </div>
                             </div>
                 )
