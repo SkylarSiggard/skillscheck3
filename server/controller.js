@@ -6,15 +6,16 @@ module.exports = {
     },
     deleteOne: async (req, res) => {
         const db = req.app.get('db')
-        const {id} = req.params
-        db.delete_house([+id]).then(result => {
+        const {index} = req.params
+        db.delete_house([+index]).then(result => {
             res.status(200).send(result)
         })
     },
     addHouse: async (req, res) => {
         const db = req.app.get('db')
-        const {property, address, city, uState, zip, url, morgage, rent} = req.body
-        const list = await db.add_a_house({property, address, city, uState, zip, url, morgage, rent})
-        res.status(200).send(list)
+        const {property, address, city, uState, zip, url, mortgage, rent} = req.body
+        db.add_a_house({property, address, city, uState, zip, url, mortgage, rent}).then(result => {
+            res.status(200).send(result)
+        })
     }
 }

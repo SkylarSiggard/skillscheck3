@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import store, {REMOVE_HOUSE_FROM_LIST} from '../store'
+import axios from 'axios'
 
 export default class DashDoard extends Component {
     constructor(props){
@@ -24,6 +25,9 @@ export default class DashDoard extends Component {
             payload: index
         }
         store.dispatch(action)
+        axios.delete(`/api/house/${index}`).then(result => {
+            console.log(result)
+        })
     }
     render() {
         return(

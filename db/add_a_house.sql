@@ -8,7 +8,7 @@ INSERT INTO house (
     mortgage,
     rent
 )
-VALUE (
+VALUES (
     ${property},
     ${address},
     ${city},

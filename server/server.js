@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 
 //!end points
-app.post('api/house', ctrl.addHouse)
+app.post('/api/house', ctrl.addHouse)
 app.delete(`/api/house/:id`, ctrl.deleteOne)
 app.get('/api/house', ctrl.getAll)
 

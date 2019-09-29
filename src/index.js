@@ -14,6 +14,7 @@ export const list = axios.get('/api/house').then(res => {
         payload: res.data
     }
     store.dispatch(action)
+    // console.log('index')
 })
 
 
