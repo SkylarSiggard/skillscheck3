@@ -6,8 +6,8 @@ export default class List extends Component {
     constructor(props){
         super(props)
         const reduxState = store.getState()
-        console.log('addpayment', reduxState.mortgage)
-        console.log('addrent', reduxState.rent)
+        // console.log('addpayment', reduxState.mortgage)
+        // console.log('addrent', reduxState.rent)
         this.setState({
             // mortgage: '',
             // rent: '',
@@ -16,14 +16,9 @@ export default class List extends Component {
             rent: reduxState.rent
         })
     }
-    handleChangeMortgage = (e) => {
+    handleChange = (e, key) => {
         this.setState({
-            mortgage: e.target.value
-        })
-    }
-    handleChangeRent = (e) => {
-        this.setState({
-            rent: e.target.value
+            [key]: e.target.value
         })
     }
     saveChanges() {
@@ -36,8 +31,8 @@ export default class List extends Component {
             payload: this.state.rent
         })
     }
-    create=()=> {
-        console.log(this.state)
+    create = () => {
+        // console.log(this.state)
         store.dispatch({
                 type: ADD_HOUSE
         })
@@ -56,13 +51,13 @@ export default class List extends Component {
                     Mounthly Mortgage Amount 
                     <input 
                     // value={this.state.mortgage} 
-                    onChange={(e) => this.handleChangeMortgage(e)} type="text"/>
+                    onChange={(e) => this.handleChange(e, 'mortgage')} type="text"/>
                 </div>
                 <div className='inputs'>
                     Desired Mounthly Rent
                     <input 
                     // value={this.state.rent} 
-                    onChange={(e) => this.handleChangeRent(e)} type="text"/>
+                    onChange={(e) => this.handleChange(e, 'rent')} type="text"/>
                 </div>
                 <div className='next1'>
                     <Link to='/addurl'><button>Prevous Step</button></Link>

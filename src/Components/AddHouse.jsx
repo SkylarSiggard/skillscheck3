@@ -6,11 +6,11 @@ export default class House extends Component {
     constructor(props) {
         super(props)
         const reduxState = store.getState()
-        console.log('addprop',reduxState.property)
-        console.log('addHouse',reduxState.address)
-        console.log('addcity',reduxState.city)
-        console.log('addstate',reduxState.uState)
-        console.log('addzip',reduxState.zip)
+        // console.log('addprop',reduxState.property)
+        // console.log('addHouse',reduxState.address)
+        // console.log('addcity',reduxState.city)
+        // console.log('addstate',reduxState.uState)
+        // console.log('addzip',reduxState.zip)
         this.state = {
             // property: '',
             // address: '',

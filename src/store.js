@@ -26,18 +26,20 @@ export const REMOVE_HOUSE_FROM_LIST = 'REMOVE_HOUSE_FROM_LIST'
 export const GET_LIST_OF_HOUSES ='GET_LIST_OF_HOUSES'
 
 //reducer function
-async function reducer(state = initialState, action) {
-    // console.log('this is the initialState', state)
-    switch(action.type) {
+function reducer(state = initialState, action) {
+    console.log('this is the initialState', state)
+    switch(action.type)  {
         case GET_LIST_OF_HOUSES:
             return {...state, houses: action.payload}
-
+            
         case ADD_PROPERTY_TO_LIST:
+                // console.log('property', state)
             return {...state, property: action.payload}
-
+                
         case ADD_ADDRESS_TO_LIST: 
+                // console.log('address', state)
             return {...state, address: action.payload}
-
+                
         case ADD_CITY_TO_LIST:
             return {...state, city: action.payload}
 
