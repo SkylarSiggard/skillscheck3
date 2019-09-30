@@ -20,6 +20,13 @@ export default class DashDoard extends Component {
             console.log('houses', this.state.houseList)
         })
     }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevProps.data !== this.props.data) {
+    //         this.setState({
+    //             houseList: reduxState.houses
+    //         })
+    //     }
+    // }
     handleDelete = (house_id) => {
         const action = {
             type: REMOVE_HOUSE_FROM_LIST, 
