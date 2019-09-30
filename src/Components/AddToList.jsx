@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import store, {ADD_MORGTAGE_TO_LIST, ADD_RENT_TO_LIST, ADD_HOUSE} from './../store'
+import store, {ADD_MORTGAGE_TO_LIST, ADD_RENT_TO_LIST, ADD_HOUSE} from './../store'
 import axios from 'axios'
 
 export default class List extends Component {
@@ -25,7 +25,7 @@ export default class List extends Component {
     }
     create() {
         store.dispatch({
-            type: ADD_MORGTAGE_TO_LIST,
+            type: ADD_MORTGAGE_TO_LIST,
             payload: this.state.mortgage
         })
         store.dispatch({
@@ -60,7 +60,7 @@ export default class List extends Component {
                     <Link to='/'><button>Cancel</button></Link>
                 </div>
                 <div className='rent'>
-                Recommended Rent ${+this.mortgage * 1.25}  
+                Recommended Rent ${+this.state.mortgage * 1.25}  
                 </div>
                 <div className='inputs'>
                     Mounthly Mortgage Amount 

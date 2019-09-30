@@ -7,7 +7,7 @@ const initialState = {
     uState: '',
     zip: '',
     url: '',
-    morgtage: '',
+    mortgage: '',
     rent: '',
     houses: []
 }
@@ -20,7 +20,7 @@ export const ADD_CITY_TO_LIST = 'ADD_CITY_TO_LIST'
 export const ADD_STATE_TO_LIST = 'ADD_STATE_TO_LIST'
 export const ADD_ZIP_TO_LIST = 'ADD_ZIP_TO_LIST'
 export const ADD_URL_TO_LIST = 'ADD_URL_TO_LIST'
-export const ADD_MORGTAGE_TO_LIST = 'ADD_MORGTAGE_TO_LIST'
+export const ADD_MORTGAGE_TO_LIST = 'ADD_MORTGAGE_TO_LIST'
 export const ADD_RENT_TO_LIST = 'ADD_RENT_TO_LIST'
 
 export const ADD_HOUSE = 'ADD_HOUSE'
@@ -52,8 +52,8 @@ function reducer(state = initialState, action) {
         case ADD_URL_TO_LIST: 
             return {...state, url: action.payload}
 
-        case ADD_MORGTAGE_TO_LIST: 
-            return {...state, morgtage: action.payload}
+        case ADD_MORTGAGE_TO_LIST: 
+            return {...state, mortgage: action.payload}
 
         case ADD_RENT_TO_LIST: 
             return {...state, rent: action.payload}
