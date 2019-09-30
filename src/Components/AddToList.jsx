@@ -36,9 +36,9 @@ export default class List extends Component {
             type: ADD_HOUSE
         })
         const reduxState = store.getState()
-        console.log('before')
+        // console.log('before')
         axios.post('/api/house', {property: reduxState.property, address: reduxState.address, city: reduxState.city, uState: reduxState.uState, zip: reduxState.zip, url: reduxState.url, mortgage: reduxState.mortgage, rent: reduxState.rent }).then(res => {
-            console.log('.then' )
+            // console.log('.then' )
             this.setState({
             property: '',
             address: '',
@@ -49,7 +49,7 @@ export default class List extends Component {
             mortgage: '',
             rent: ''
     })
-    console.log('after')
+    // console.log('after')
     })
     }
     render() {
@@ -60,7 +60,7 @@ export default class List extends Component {
                     <Link to='/'><button>Cancel</button></Link>
                 </div>
                 <div className='rent'>
-                Recommended Rent $0 
+                Recommended Rent ${console.log(this.mortgage)} 
                 </div>
                 <div className='inputs'>
                     Mounthly Mortgage Amount 

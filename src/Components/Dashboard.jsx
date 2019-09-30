@@ -17,7 +17,7 @@ export default class DashDoard extends Component {
             this.setState({
                 houseList: reduxState.houses
             })
-            console.log('houses', this.state.houseList)
+            // console.log('houses', this.state.houseList)
         })
     }
     // componentDidUpdate(prevProps, prevState) {
