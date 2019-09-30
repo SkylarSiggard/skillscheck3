@@ -60,7 +60,7 @@ export default class List extends Component {
                     <Link to='/'><button>Cancel</button></Link>
                 </div>
                 <div className='rent'>
-                Recommended Rent ${+this.state.mortgage * 1.25}  
+                Recommended Rent ${this.mortgage}  
                 </div>
                 <div className='inputs'>
                     Mounthly Mortgage Amount 
